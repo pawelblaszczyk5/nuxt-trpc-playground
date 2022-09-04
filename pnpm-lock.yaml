@@ -2,6 +2,8 @@ lockfileVersion: 5.4
 
 specifiers:
   '@rushstack/eslint-patch': ^1.1.4
+  '@trpc/client': 10.0.0-proxy-alpha.66
+  '@trpc/server': 10.0.0-proxy-alpha.66
   '@vue/eslint-config-prettier': ^7.0.0
   '@vue/eslint-config-typescript': ^11.0.0
   eslint: ^8.23.0
@@ -13,6 +15,14 @@ specifiers:
   nuxt: 3.0.0-rc.9
   prettier: ^2.7.1
   typescript: ^4.8.2
+  ufo: ^0.8.5
+  zod: ^3.18.0
+
+dependencies:
+  '@trpc/client': 10.0.0-proxy-alpha.66_rsxyi5m2pml4jncmvluwssps6i
+  '@trpc/server': 10.0.0-proxy-alpha.66
+  ufo: 0.8.5
+  zod: 3.18.0
 
 devDependencies:
   '@rushstack/eslint-patch': 1.1.4
@@ -806,6 +816,18 @@ packages:
   /@rushstack/eslint-patch/1.1.4:
     resolution: {integrity: sha512-LwzQKA4vzIct1zNZzBmRKI9QuNpLgTQMEjsQLf3BXuGYb3QPTP4Yjf6mkdX+X1mYttZ808QpOwAzZjv28kq7DA==}
     dev: true
+
+  /@trpc/client/10.0.0-proxy-alpha.66_rsxyi5m2pml4jncmvluwssps6i:
+    resolution: {integrity: sha512-LGWPbKTMaP/8d75PbGrhq0AEBKOTgOWqn8dCJ1OfJkf6t062hi1iMp4yTlmshjrJvnND/KnDkAze1ednrf2ifw==}
+    peerDependencies:
+      '@trpc/server': 10.0.0-proxy-alpha.66
+    dependencies:
+      '@trpc/server': 10.0.0-proxy-alpha.66
+    dev: false
+
+  /@trpc/server/10.0.0-proxy-alpha.66:
+    resolution: {integrity: sha512-HbTrRCFq5+G9QY6/4RMubOZfWEURsVnopgJM0Z2psxyocUbvjmaIAyE6zjTyshZLL2pWbYX50JmNd9RGVqzfgA==}
+    dev: false
 
   /@trysound/sax/0.2.0:
     resolution: {integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==}
@@ -5650,7 +5672,6 @@ packages:
 
   /ufo/0.8.5:
     resolution: {integrity: sha512-e4+UtA5IRO+ha6hYklwj6r7BjiGMxS0O+UaSg9HbaTefg4kMkzj4tXzEBajRR+wkxf+golgAWKzLbytCUDMJAA==}
-    dev: true
 
   /unbox-primitive/1.0.2:
     resolution: {integrity: sha512-61pPlCD9h51VoreyJ0BReideM3MDKMKnh6+V9L08331ipq6Q8OFXZYiqP6n/tbHx4s5I9uRhcye6BrbkizkBDw==}
@@ -6225,3 +6246,7 @@ packages:
       compress-commons: 4.1.1
       readable-stream: 3.6.0
     dev: true
+
+  /zod/3.18.0:
+    resolution: {integrity: sha512-gwTm8RfUCe8l9rDwN5r2A17DkAa8Ez4Yl4yXqc5VqeGaXaJahzYYXbTwvhroZi0SNBqTwh/bKm2N0mpCzuw4bA==}
+    dev: false

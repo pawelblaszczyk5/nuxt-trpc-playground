@@ -1,3 +1,3 @@
 <template>
-	<NuxtPage />
+	<h1><slot /></h1>
 </template>

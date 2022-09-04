@@ -13,6 +13,7 @@ module.exports = {
 		'@vue/eslint-config-prettier',
 	],
 	rules: {
+		'no-undef': 'off',
 		'@typescript-eslint/consistent-type-imports': 2,
 		'@typescript-eslint/no-unused-vars': [
 			'error',
@@ -71,6 +72,7 @@ module.exports = {
 		],
 		'vue/padding-line-between-blocks': ['error', 'always'],
 		'vue/no-setup-props-destructure': 'off',
+		'vue/multi-word-component-names': 'off',
 	},
 	parserOptions: {
 		ecmaVersion: 'latest',
@@ -86,18 +88,4 @@ module.exports = {
 			},
 		},
 	},
-	overrides: [
-		{
-			files: ['*.vue'],
-			globals: {
-				$ref: 'readonly',
-				$computed: 'readonly',
-				$shallowRef: 'readonly',
-				$customRef: 'readonly',
-				$toRef: 'readonly',
-				$$: 'readonly',
-				$: 'readonly',
-			},
-		},
-	],
 };
