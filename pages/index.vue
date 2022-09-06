@@ -2,8 +2,12 @@
 	import { TRPCClientError } from '@trpc/client';
 
 	const [firstData, secondData] = await Promise.all([
-		useAsyncData('test', () => trpcClient.greeting.query({ name: 'Bla bla' })),
-		useAsyncData('test2', () => trpcClient.greeting.query({ name: 'Ble ble' })),
+		useAsyncData('test', () => trpcClient.greeting.query({ name: 'Bla bla' }), {
+			initialCache: false,
+		}),
+		useAsyncData('test2', () => trpcClient.greeting.query({ name: 'Ble ble' }), {
+			initialCache: false,
+		}),
 	]);
 
 	const { data: greetingFirst, error: errorFirst } = $(firstData);
@@ -29,5 +33,7 @@
 		<UiHeading>{{ greetingFirst }}</UiHeading>
 		<UiHeading>{{ greetingSecond }}</UiHeading>
 		<button @click="handleClick">Click me</button>
+		<NuxtLink to="/foo">Link to test</NuxtLink>
+		<NuxtLink to="/bar">Link to haha</NuxtLink>
 	</div>
 </template>
