@@ -7,4 +7,15 @@ export const trpcClient = createTRPCProxyClient<AppRouter>({
 		? `http://localhost:${process.env['NITRO_PORT'] || process.env['PORT'] || 3e3}/api/trpc`
 		: '/api/trpc',
 	headers: () => useRequestHeaders(['cookie']),
+	fetch: async (input, init) => {
+		const response = await fetch(input, init);
+
+		if (import.meta.env['SSR']) {
+			const event = useRequestEvent();
+
+			event.res.setHeader('set-cookie', response.headers.get('set-cookie') || '');
+		}
+
+		return response;
+	},
 });
