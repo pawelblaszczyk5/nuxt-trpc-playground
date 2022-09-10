@@ -3,15 +3,17 @@
 
 	const [firstData, secondData] = await Promise.all([
 		useAsyncData('test', () => trpcClient.greeting.query({ name: 'Bla bla' }), {
-			initialCache: false,
+			initialCache: true,
 		}),
 		useAsyncData('test2', () => trpcClient.greeting.query({ name: 'Ble ble' }), {
-			initialCache: false,
+			initialCache: true,
 		}),
 	]);
 
-	const { data: greetingFirst, error: errorFirst } = $(firstData);
-	const { data: greetingSecond, error: errorSecond } = $(secondData);
+	const hasVisitedBefore = $(useVisitedBefore());
+
+	const { data: greetingFirst, error: errorFirst, refresh: refreshFirst } = $(firstData);
+	const { data: greetingSecond, error: errorSecond, refresh: refreshSecond } = $(secondData);
 
 	if (errorFirst || errorSecond) {
 		throw createError({ statusCode: 404, statusMessage: 'Page Not Found' });
@@ -26,6 +28,13 @@
 			console.log(error instanceof TRPCClientError ? error.data : '');
 		}
 	};
+
+	onMounted(() => {
+		if (hasVisitedBefore) {
+			refreshFirst();
+			refreshSecond();
+		}
+	});
 </script>
 
 <template>
