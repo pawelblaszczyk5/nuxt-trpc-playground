@@ -13,8 +13,6 @@ export default defineEventHandler(async event => {
 
 	const url = createURL(req.url);
 
-	console.log(parseCookies(event));
-
 	const httpResponse = await resolveHTTPResponse({
 		router: appRouter,
 		req: {
@@ -26,8 +24,6 @@ export default defineEventHandler(async event => {
 		path: url.pathname.slice(10),
 		createContext: async () => ({}),
 	});
-
-	setCookie(event, 'test', 'testValue');
 
 	const { status, headers, body } = httpResponse;
 
