@@ -10,7 +10,7 @@ export const trpcClient = createTRPCProxyClient<AppRouter>({
 	fetch: async (input, init) => {
 		const response = await fetch(input, init);
 
-		if (import.meta.env['SSR']) {
+		if (process.server) {
 			const event = useRequestEvent();
 
 			event.res.setHeader('set-cookie', response.headers.get('set-cookie') || '');
