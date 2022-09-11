@@ -11,7 +11,7 @@
 	const { data: greetingFirst, error: errorFirst, refresh: refreshFirst } = $(firstData);
 	const { data: greetingSecond, error: errorSecond, refresh: refreshSecond } = $(secondData);
 
-	if (errorFirst || errorSecond) {
+	if (errorFirst || errorSecond || !greetingFirst || !greetingSecond) {
 		throw createError({ statusCode: 404, statusMessage: 'Page Not Found' });
 	}
 

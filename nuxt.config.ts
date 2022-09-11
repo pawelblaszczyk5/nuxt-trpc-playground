@@ -10,4 +10,5 @@ export default defineNuxtConfig({
 	experimental: {
 		reactivityTransform: true,
 	},
+	ssr: false,
 });
