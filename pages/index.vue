@@ -2,12 +2,8 @@
 	import { TRPCClientError } from '@trpc/client';
 
 	const [firstData, secondData] = await Promise.all([
-		useAsyncData('test', () => trpcClient.greeting.query({ name: 'Bla bla' }), {
-			initialCache: true,
-		}),
-		useAsyncData('test2', () => trpcClient.greeting.query({ name: 'Ble ble' }), {
-			initialCache: true,
-		}),
+		useAsyncData('test', () => trpcClient.greeting.query({ name: 'Bla bla' })),
+		useAsyncData('test2', () => trpcClient.greeting.query({ name: 'Ble ble' })),
 	]);
 
 	const hasVisitedBefore = $(useVisitedBefore());
